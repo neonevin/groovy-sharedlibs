@@ -29,7 +29,7 @@ class PhireActReq {
             this.CR_TASK_NEXT_STEP_REQ.PHI_DOMAIN_ID=" "
         }
         //NP -  15dec- test code - update condition to none from null
-        if (phiCrNum="NONE") {
+        if (phiCrNum.equalsIgnoreCase("NONE")) {
             this.CR_TASK_NEXT_STEP_REQ.PHI_CR_NUM=phiCrNum
         } else {
             this.CR_TASK_NEXT_STEP_REQ.PHI_CR_NUM=" "
