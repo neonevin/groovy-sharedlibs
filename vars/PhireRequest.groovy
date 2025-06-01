@@ -47,6 +47,7 @@ String call(String userid, String password, String phireTktId, String ticketPrjI
         phiDomainId=""
         phireId=""
     }
+     println 'phiDomainId '+ phiDomainId + 'phiCrNum ' + phiCrNum +'### end.'
     
     //                          (phiDomainId, phiCrNum, tktStatus, phiAssignee, assigneeEmail, phiMigrType, ticketId, rqstUsr, rqstEmail) 
    //        (phiDomainId, phiCrNum, ticketPrjId, ticketAppId, ticketType, tktStatus, tktAssignee, assigneeEmail, phiMigrType, ticketId, phiTitle, rqstUsr, rqstEmail) {
