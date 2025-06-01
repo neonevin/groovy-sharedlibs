@@ -23,6 +23,9 @@ class PhireActReq {
         DTTL_REQUEST_EMAIL:""]
     //def CR_TASK_NEXT_STEP_REQ =  [PHI_DOMAIN_ID: "", PHI_CR_NUM: "", DEL_JIRA_STATUS:"",  PHI_ASSIGN_TO:"", PHI_MIGR_TYPE:"",DTTL_TICKET_ID:"",DTTL_REQUESTER_ID:""]
     PhireActReq(phiDomainId, phiCrNum, ticketPrjId, ticketAppId, ticketType, tktStatus, tktAssignee, assigneeEmail, phiMigrType, ticketId, phiTitle, rqstUsr, rqstEmail) {
+
+            println  "debug - in PhireActReq.groovy - call started"
+    println 'phiDomainId '+ phiDomainId + 'phiCrNum ' + phiCrNum +'### end.'
         if (phiDomainId){
             this.CR_TASK_NEXT_STEP_REQ.PHI_DOMAIN_ID=phiDomainId
         } else{
