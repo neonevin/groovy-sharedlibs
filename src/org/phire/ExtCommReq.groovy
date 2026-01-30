@@ -44,7 +44,7 @@ class ExtCommReq {
     }
     */
 
-    // load Msg Map from args, assign defaults when null
+    // load Msg Map from args, assign defaults when null.
     @NonCPS
     def buildReqMsg()
     {
