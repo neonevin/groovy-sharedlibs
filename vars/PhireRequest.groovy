@@ -36,10 +36,9 @@ def sendMessage(JsonBuilder jsonMsg,String userid, String password, String url){
     println response.text
     return response.json
 }
-
-String call(String userid, String password, String phireTktId, String ticketPrjId, String ticketAppId, String ticketType, String tktStatus, String tktAssignee, String tktAssigneeEmail, String phiMigrType, String tktId, String lastCmmt, String phiTitle, String rqstUsr, String rqstEmail, String url) {
-    println  "debug"
-    println 'ticketPrjId '+ ticketPrjId + 'phireTktId ' + phireTktId +'### end.'
+// update method to return Map object
+//String call(String userid, String password, String phireTktId, String ticketPrjId, String ticketAppId, String ticketType, String tktStatus, String tktAssignee, String tktAssigneeEmail, String phiMigrType, String tktId, String lastCmmt, String phiTitle, String rqstUsr, String rqstEmail, String url) {
+Map call(String userid, String password, String phireTktId, String ticketPrjId, String ticketAppId, String ticketType, String tktStatus, String tktAssignee, String tktAssigneeEmail, String phiMigrType, String tktId, String lastCmmt, String phiTitle, String rqstUsr, String rqstEmail, String url) {
     if ((phireTktId) && (phireTktId.indexOf("-") != -1)) {
         phiDomainId = phireTktId.split('-')[0]
         phireId = phireTktId.split('-')[1]
@@ -47,7 +46,6 @@ String call(String userid, String password, String phireTktId, String ticketPrjI
         phiDomainId=""
         phireId=""
     }
-     println 'phiDomainId '+ phiDomainId + 'phiCrNum ' + phireId +'### end.'
     
     //                          (phiDomainId, phiCrNum, tktStatus, phiAssignee, assigneeEmail, phiMigrType, ticketId, rqstUsr, rqstEmail) 
    //        (phiDomainId, phiCrNum, ticketPrjId, ticketAppId, ticketType, tktStatus, tktAssignee, assigneeEmail, phiMigrType, ticketId, phiTitle, rqstUsr, rqstEmail) {
@@ -62,13 +60,16 @@ String call(String userid, String password, String phireTktId, String ticketPrjI
     //println "Json builder - response obj"
     //println builderRsp.toString()
     
-    String jiraComment=""
+   // String jiraComment=""
 
     if (respObj.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR) {
-       jiraComment =  respObj.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT
+       //jiraComment =  respObj.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT
+       //temp change - set resp text from error text
+       respObj.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT = respObj.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT
     }
     else {
-        jiraComment =  respObj.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT
+        //temp change - set resp text from error text
+        //jiraComment =  respObj.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT
     }
     //def response = args.jenkinsWorkflowScript.invokeMethod 'jiraAddComment', [comment: jiraComment, idOrKey: tktId, site: 'JiraSSL']
     return jiraComment
