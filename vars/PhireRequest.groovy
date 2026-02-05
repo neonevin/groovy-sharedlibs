@@ -63,6 +63,9 @@ def call(String userid, String password, String phireTktId, String ticketPrjId, 
     def respJsonSlurper = new JsonSlurper()
     def respObj2 =  respJsonSlurper.parseText(builderRsp.toString())
     assert respObj2 instanceof Map
+
+// PhireActRsp (phiDomainId, phiCrType, phiCrNum, tktStatus, phiAssignee, phiMigrType, phiRespTxt, phiHasError, phiErrorTxt)
+
     //println "print object"
     
    // String jiraComment=""
@@ -80,7 +83,8 @@ def call(String userid, String password, String phireTktId, String ticketPrjId, 
          println (respObj2.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT)
     }
     //def response = args.jenkinsWorkflowScript.invokeMethod 'jiraAddComment', [comment: jiraComment, idOrKey: tktId, site: 'JiraSSL']
-
+   def respObj3=new PhireActRsp(respObj2.CR_TASK_NEXT_STEP_RSP.PHI_DOMAIN_ID, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_CR_TYPE, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_CR_NUM, respObj2.CR_TASK_NEXT_STEP_RSP.DTTL_TICKET_STATUS, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_ASSIGN_TO, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_MIGR_TYPE, respObj2.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT)
+ 
     return respObj2
 }
 
