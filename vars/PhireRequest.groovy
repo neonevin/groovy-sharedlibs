@@ -60,20 +60,24 @@ def call(String userid, String password, String phireTktId, String ticketPrjId, 
     def builderRsp = new JsonBuilder(respObj)
     //println "Json builder - response obj"
     //println builderRsp.toString()
+    def respJsonSlurper = new JsonSlurper()
+    def respObj2 =  respJsonSlurper().parseText(respObj.toString())
+    assert respObj2 instanceof Map
+    //println "print object"
     
    // String jiraComment=""
 
-    if (respObj.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR) {
+    if (respObj2.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR) {
        //jiraComment =  respObj.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT
        //temp change - set resp text from error text
-       respObj.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT = respObj.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT
+       respObj2.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT = respObj2.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT
     }
     else {
         //temp change - set resp text from error text
         //jiraComment =  respObj.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT
-        respObj.CR_TASK_NEXT_STEP_RSP.PHI_CR_NUM=respObj.CR_TASK_NEXT_STEP_RSP.PHI_DOMAIN_ID + "-" + respObj.CR_TASK_NEXT_STEP_RSP.PHI_CR_NUM
+        respObj2.CR_TASK_NEXT_STEP_RSP.PHI_CR_NUM=respObj2.CR_TASK_NEXT_STEP_RSP.PHI_DOMAIN_ID + "-" + respObj2.CR_TASK_NEXT_STEP_RSP.PHI_CR_NUM
         println "resp text -  " 
-         println (respObj.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT)
+         println (respObj2.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT)
     }
     //def response = args.jenkinsWorkflowScript.invokeMethod 'jiraAddComment', [comment: jiraComment, idOrKey: tktId, site: 'JiraSSL']
 
