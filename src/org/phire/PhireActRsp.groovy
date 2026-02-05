@@ -20,7 +20,7 @@ class PhireActRsp {
     ]
 
 
-
+@NonCPS
     def PhireActRsp (phiDomainId, phiCrType, phiCrNum, tktStatus, phiAssignee, phiMigrType, phiRespTxt, phiHasError, phiErrorTxt)
     {
         if (phiDomainId){
