@@ -85,7 +85,7 @@ def call(String userid, String password, String phireTktId, String ticketPrjId, 
     //def response = args.jenkinsWorkflowScript.invokeMethod 'jiraAddComment', [comment: jiraComment, idOrKey: tktId, site: 'JiraSSL']
    def respObj3=new PhireActRsp(respObj2.CR_TASK_NEXT_STEP_RSP.PHI_DOMAIN_ID, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_CR_TYPE, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_CR_NUM, respObj2.CR_TASK_NEXT_STEP_RSP.DTTL_TICKET_STATUS, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_ASSIGN_TO, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_MIGR_TYPE, respObj2.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT)
  
-    return respObj2
+    return respObj3
 }
 
 //call('env.USERNAME', 'env.USERPASS', 'PHIRE_NUM', 'TICKET_STATUS', 'ISSUE_ASSIGNEE', 'S', 'TICKET_ID', 'LAST_COMMENT_BODY', 'REQUEST_USER', 'http://140.238.207.38:8000//PSIGW/RESTListeningConnector/PSFT_HR/DEL_API_CR_NEXT_STEP.v1/')
