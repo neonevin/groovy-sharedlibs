@@ -38,6 +38,7 @@ def sendMessage(JsonBuilder jsonMsg,String userid, String password, String url){
 }
 // update method to return Map object
 //String call(String userid, String password, String phireTktId, String ticketPrjId, String ticketAppId, String ticketType, String tktStatus, String tktAssignee, String tktAssigneeEmail, String phiMigrType, String tktId, String lastCmmt, String phiTitle, String rqstUsr, String rqstEmail, String url) {
+@NonCPS
 Map call(String userid, String password, String phireTktId, String ticketPrjId, String ticketAppId, String ticketType, String tktStatus, String tktAssignee, String tktAssigneeEmail, String phiMigrType, String tktId, String lastCmmt, String phiTitle, String rqstUsr, String rqstEmail, String url) {
     if ((phireTktId) && (phireTktId.indexOf("-") != -1)) {
         phiDomainId = phireTktId.split('-')[0]
@@ -73,7 +74,7 @@ Map call(String userid, String password, String phireTktId, String ticketPrjId, 
         respObj.CR_TASK_NEXT_STEP_RSP.PHI_CR_NUM=respObj.CR_TASK_NEXT_STEP_RSP.PHI_DOMAIN_ID + "-" + respObj.CR_TASK_NEXT_STEP_RSP.PHI_CR_NUM
     }
     //def response = args.jenkinsWorkflowScript.invokeMethod 'jiraAddComment', [comment: jiraComment, idOrKey: tktId, site: 'JiraSSL']
-    
+
     return respObj
 }
 
