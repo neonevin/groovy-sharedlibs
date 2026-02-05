@@ -61,7 +61,7 @@ def call(String userid, String password, String phireTktId, String ticketPrjId, 
     //println "Json builder - response obj"
     //println builderRsp.toString()
     def respJsonSlurper = new JsonSlurper()
-    def respObj2 =  respJsonSlurper().parseText(respObj.toString())
+    def respObj2 =  respJsonSlurper.parseText(respObj.toString())
     assert respObj2 instanceof Map
     //println "print object"
     
