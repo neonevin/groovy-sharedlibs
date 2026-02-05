@@ -72,6 +72,8 @@ def call(String userid, String password, String phireTktId, String ticketPrjId, 
         //temp change - set resp text from error text
         //jiraComment =  respObj.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT
         respObj.CR_TASK_NEXT_STEP_RSP.PHI_CR_NUM=respObj.CR_TASK_NEXT_STEP_RSP.PHI_DOMAIN_ID + "-" + respObj.CR_TASK_NEXT_STEP_RSP.PHI_CR_NUM
+        println "resp text -  " 
+         println (respObj.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT)
     }
     //def response = args.jenkinsWorkflowScript.invokeMethod 'jiraAddComment', [comment: jiraComment, idOrKey: tktId, site: 'JiraSSL']
 
