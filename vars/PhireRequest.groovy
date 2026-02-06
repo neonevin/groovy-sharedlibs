@@ -57,12 +57,12 @@ def call(String userid, String password, String phireTktId, String ticketPrjId, 
     def respObj= new PhireActRsp()
     respObj=sendMessage(builder, userid, password, url) 
     // Load response.json  to PhireResponse 
-    def builderRsp = new JsonBuilder(respObj)
+ //   def builderRsp = new JsonBuilder(respObj)
     //println "Json builder - response obj"
     //println builderRsp.toString()
-    def respJsonSlurper = new JsonSlurper()
-    def respObj2 =  respJsonSlurper.parseText(builderRsp.toString())
-    assert respObj2 instanceof Map
+   // def respJsonSlurper = new JsonSlurper()
+  //  def respObj2 =  respJsonSlurper.parseText(builderRsp.toString())
+   // assert respObj2 instanceof Map
 
 // PhireActRsp (phiDomainId, phiCrType, phiCrNum, tktStatus, phiAssignee, phiMigrType, phiRespTxt, phiHasError, phiErrorTxt)
 
@@ -70,23 +70,24 @@ def call(String userid, String password, String phireTktId, String ticketPrjId, 
     
    // String jiraComment=""
 
-    if (respObj2.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR) {
+    if (respObj.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR) {
        //jiraComment =  respObj.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT
        //temp change - set resp text from error text
-       respObj2.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT = respObj2.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT
+       respObj.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT = respObj.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT
     }
     else {
         //temp change - set resp text from error text
         //jiraComment =  respObj.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT
-        respObj2.CR_TASK_NEXT_STEP_RSP.PHI_CR_NUM=respObj2.CR_TASK_NEXT_STEP_RSP.PHI_DOMAIN_ID + "-" + respObj2.CR_TASK_NEXT_STEP_RSP.PHI_CR_NUM
+        respObj.CR_TASK_NEXT_STEP_RSP.PHI_CR_NUM=respObj.CR_TASK_NEXT_STEP_RSP.PHI_DOMAIN_ID + "-" + respObj.CR_TASK_NEXT_STEP_RSP.PHI_CR_NUM
         println "resp text -  " 
-         println (respObj2.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT)
+         println (respObj.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT)
     }
     //def response = args.jenkinsWorkflowScript.invokeMethod 'jiraAddComment', [comment: jiraComment, idOrKey: tktId, site: 'JiraSSL']
   // def respObj3=new PhireActRsp(respObj2.CR_TASK_NEXT_STEP_RSP.PHI_DOMAIN_ID, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_CR_TYPE, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_CR_NUM, respObj2.CR_TASK_NEXT_STEP_RSP.DTTL_TICKET_STATUS, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_ASSIGN_TO, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_MIGR_TYPE, respObj2.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR, respObj2.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT)
-    def respObj3=new PhireActRsp(respObj.CR_TASK_NEXT_STEP_RSP.PHI_DOMAIN_ID, respObj.CR_TASK_NEXT_STEP_RSP.PHI_CR_TYPE, respObj.CR_TASK_NEXT_STEP_RSP.PHI_CR_NUM, respObj.CR_TASK_NEXT_STEP_RSP.DTTL_TICKET_STATUS, respObj.CR_TASK_NEXT_STEP_RSP.PHI_ASSIGN_TO, respObj.CR_TASK_NEXT_STEP_RSP.PHI_MIGR_TYPE, respObj.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT, respObj.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR, respObj.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT)
- 
-    return respObj3
+  //cast to map to fix serilization issue in Jenkins Pipeline
+    def mapRespObj=new PhireActRsp(respObj.CR_TASK_NEXT_STEP_RSP.PHI_DOMAIN_ID, respObj.CR_TASK_NEXT_STEP_RSP.PHI_CR_TYPE, respObj.CR_TASK_NEXT_STEP_RSP.PHI_CR_NUM, respObj.CR_TASK_NEXT_STEP_RSP.DTTL_TICKET_STATUS, respObj.CR_TASK_NEXT_STEP_RSP.PHI_ASSIGN_TO, respObj.CR_TASK_NEXT_STEP_RSP.PHI_MIGR_TYPE, respObj.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT, respObj.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR, respObj.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT)
+
+    return mapRespObj
 }
 
 //call('env.USERNAME', 'env.USERPASS', 'PHIRE_NUM', 'TICKET_STATUS', 'ISSUE_ASSIGNEE', 'S', 'TICKET_ID', 'LAST_COMMENT_BODY', 'REQUEST_USER', 'http://140.238.207.38:8000//PSIGW/RESTListeningConnector/PSFT_HR/DEL_API_CR_NEXT_STEP.v1/')
