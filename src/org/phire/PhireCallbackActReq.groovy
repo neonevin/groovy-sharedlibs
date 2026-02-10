@@ -99,8 +99,10 @@ class PhireCallbackActReq {
     def PhireCallbackActReq(strReqMsg)
     {
         def jsonSlurper = new JsonSlurper()
+        println strReqMsg
         def reqObj =  jsonSlurper.parseText(strReqMsg)
         assert reqObj instanceof Map
+        println reqObj.toString()
         this.PhireCallbackActReq(reqObj.PHI_CALLBACK_REQ.PHI_DOMAIN_ID, reqObj.PHI_CALLBACK_REQ.PHI_CR_NUM, reqObj.PHI_CALLBACK_REQ.DTTL_PROJECT_ID, reqObj.PHI_CALLBACK_REQ.DTTL_APPLICATIONID, reqObj.PHI_CALLBACK_REQ.DTTL_TICKET_TYPE, reqObj.PHI_CALLBACK_REQ.DTTL_TICKET_STATUS, reqObj.PHI_CALLBACK_REQ.PHI_ASSIGN_TO, reqObj.PHI_CALLBACK_REQ.DTTL_ASSIGN_EMAIL, reqObj.PHI_CALLBACK_REQ.PHI_MIGR_TYPE, reqObj.PHI_CALLBACK_REQ.DTTL_TICKET_ID, reqObj.PHI_CALLBACK_REQ.PHI_TITLE, reqObj.PHI_CALLBACK_REQ.DTTL_REQUESTER_ID, reqObj.PHI_CALLBACK_REQ.DTTL_REQUEST_EMAIL)
 
     }
