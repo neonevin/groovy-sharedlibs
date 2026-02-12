@@ -14,14 +14,15 @@ class PhireActRsp {
         DTTL_TICKET_STATUS:"",  
         PHI_ASSIGN_TO: "", 
         PHI_MIGR_TYPE: "",
-        DTTL_PHI_RESP_TEXT: "", 
+        DTTL_ACTION_TYPE:"",
+        DTTL_PHI_RESP_TEXT: "",
         PHI_HAS_ERROR: true, 
         PHI_ERROR_TEXT:""
     ]
 
 
 
-    def PhireActRsp (phiDomainId, phiCrType, phiCrNum, tktStatus, phiAssignee, phiMigrType, phiRespTxt, phiHasError, phiErrorTxt)
+    def PhireActRsp (phiDomainId, phiCrType, phiCrNum, tktStatus, phiAssignee, phiMigrType, phiActType,phiRespTxt, phiHasError, phiErrorTxt)
     {
         if (phiDomainId){
             this.CR_TASK_NEXT_STEP_RSP.PHI_DOMAIN_ID=phiDomainId
@@ -53,6 +54,11 @@ class PhireActRsp {
         } else{
             this.CR_TASK_NEXT_STEP_RSP.PHI_MIGR_TYPE=" "
         }
+        if (phiActType){
+            this.CR_TASK_NEXT_STEP_RSP.DTTL_ACTION_TYPE=phiActType
+        } else{
+            this.CR_TASK_NEXT_STEP_RSP.DTTL_ACTION_TYPE=" "
+        }
         if (phiRespTxt){
             this.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT=phiRespTxt
         } else{
@@ -62,12 +68,13 @@ class PhireActRsp {
             this.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR=phiHasError
         } else{
             this.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR=true
+            println "act rsp - has error " + this.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR
         }
         if (phiErrorTxt){
             this.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT=phiErrorTxt
         } else{
-            this.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT=true
-        }    
+            this.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT=""
+        }
     }
 
 
