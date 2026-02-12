@@ -68,13 +68,13 @@ class PhireActRsp {
             this.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR=phiHasError
         } else{
             this.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR=true
-            println "act rsp - has error " + this.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR
         }
         if (phiErrorTxt){
             this.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT=phiErrorTxt
         } else{
             this.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT=""
         }
+        println "act rsp - has error " + this.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR
     }
 
 
