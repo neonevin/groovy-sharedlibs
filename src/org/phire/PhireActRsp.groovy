@@ -24,6 +24,7 @@ class PhireActRsp {
 
     def PhireActRsp (phiDomainId, phiCrType, phiCrNum, tktStatus, phiAssignee, phiMigrType, phiActType,phiRespTxt, phiHasError, phiErrorTxt)
     {
+        println "in ALL  arg constructor of PhireActRsp"
         if (phiDomainId){
             this.CR_TASK_NEXT_STEP_RSP.PHI_DOMAIN_ID=phiDomainId
         } else{
@@ -79,5 +80,8 @@ class PhireActRsp {
 
 
     def PhireActRsp ()
-    {}    
+    {
+        println "in no arg constructor of PhireActRsp"
+ 
+    }    
 }
