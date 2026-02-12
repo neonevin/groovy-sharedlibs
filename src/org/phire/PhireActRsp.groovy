@@ -66,9 +66,9 @@ class PhireActRsp {
             this.CR_TASK_NEXT_STEP_RSP.DTTL_PHI_RESP_TEXT=" "
         }
         if (phiHasError){
-            this.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR=phiHasError
-        } else{
             this.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR=true
+        } else{
+            this.CR_TASK_NEXT_STEP_RSP.PHI_HAS_ERROR=phiHasError
         }
         if (phiErrorTxt){
             this.CR_TASK_NEXT_STEP_RSP.PHI_ERROR_TEXT=phiErrorTxt
