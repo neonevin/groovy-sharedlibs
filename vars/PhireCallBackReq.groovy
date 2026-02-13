@@ -17,16 +17,16 @@ def call(String strReqMsg) {
             println "req obj - migr type" + reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_MIGR_TYPE
             println "req obj - action type" + reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_ACTION_TYPE
             println "req obj - action descr" + reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_ACTION_DESCR
-    def phireCallbackActReq = new PhireCallbackActReq(reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_DOMAIN_ID, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_CR_NUM, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_TICKET_STATUS, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_TICKET_ID, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_MIGR_TYPE, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_ACTION_TYPE, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_ACTION_DESCR)
-            println "phireCallbackActReq - domain id" + phireCallbackActReq.PHI_CALLBACK_REQ.PHI_DOMAIN_ID
-            println "phireCallbackActReq - cr num" + phireCallbackActReq.PHI_CALLBACK_REQ.PHI_CR_NUM
-            println "phireCallbackActReq - ticket status" + phireCallbackActReq.PHI_CALLBACK_REQ.DTTL_TICKET_STATUS
-            println "phireCallbackActReq - ticket id" + phireCallbackActReq.PHI_CALLBACK_REQ.DTTL_TICKET_ID
-            println "phireCallbackActReq - migr type" + phireCallbackActReq.PHI_CALLBACK_REQ.PHI_MIGR_TYPE
-            println "phireCallbackActReq - action type" + phireCallbackActReq.PHI_CALLBACK_REQ.DTTL_ACTION_TYPE
-            println "phireCallbackActReq - action descr" + phireCallbackActReq.PHI_CALLBACK_REQ.PHI_ACTION_DESCR
-            println "phireCallbackActReq in call" + phireCallbackActReq.toString()
+    def mapCallbackActReq = new PhireCallbackActReq(reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_DOMAIN_ID, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_CR_NUM, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_TICKET_STATUS, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_TICKET_ID, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_MIGR_TYPE, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_ACTION_TYPE, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_ACTION_DESCR)
+            println "phireCallbackActReq - domain id" + mapCallbackActReq.PHI_CALLBACK_REQ.PHI_DOMAIN_ID
+            println "phireCallbackActReq - cr num" + mapCallbackActReq.PHI_CALLBACK_REQ.PHI_CR_NUM
+            println "phireCallbackActReq - ticket status" + mapCallbackActReq.PHI_CALLBACK_REQ.DTTL_TICKET_STATUS
+            println "phireCallbackActReq - ticket id" + mapCallbackActReq.PHI_CALLBACK_REQ.DTTL_TICKET_ID
+            println "phireCallbackActReq - migr type" + mapCallbackActReq.PHI_CALLBACK_REQ.PHI_MIGR_TYPE
+            println "phireCallbackActReq - action type" + mapCallbackActReq.PHI_CALLBACK_REQ.DTTL_ACTION_TYPE
+            println "phireCallbackActReq - action descr" + mapCallbackActReq.PHI_CALLBACK_REQ.PHI_ACTION_DESCR
+            println "phireCallbackActReq in call" + mapCallbackActReq
     //def phireCallbackActReq = new PhireCallbackActReq(strReqMsg)
      println "in PhireCallBackReq.groovy - B4 return" //+ phireCallbackActReq
-    return phireCallbackActReq
+    return mapCallbackActReq
 }
