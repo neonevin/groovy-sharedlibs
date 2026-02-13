@@ -5,7 +5,6 @@ import groovy.json.JsonSlurper
 def call(String strReqMsg) {
     println "in PhireCallBackReq.groovy - call function" + strReqMsg
 
-    println strReqMsg
     def jsonSlurper = new JsonSlurper()
     def reqObj =  jsonSlurper.parseText(strReqMsg)
     assert reqObj instanceof Map
