@@ -27,8 +27,13 @@ class PhireCallbackActReq {
         this.PHI_CALLBACK_REQ.PHI_MIGR_TYPE = phiMigrType ?: ""
         this.PHI_CALLBACK_REQ.DTTL_ACTION_TYPE = actionType ?: ""
         this.PHI_CALLBACK_REQ.PHI_ACTION_DESCR = actionDescr ?: ""
+    }
+
+    def PhireCallbackActReq()
+    {
     } 
 
+/*
     def PhireCallbackActReq(strReqMsg)
     {
         def jsonSlurper = new JsonSlurper()
@@ -49,6 +54,6 @@ class PhireCallbackActReq {
         this.PHI_CALLBACK_REQ.PHI_MIGR_TYPE = phiMigrType ?: ""
         this.PHI_CALLBACK_REQ.DTTL_ACTION_TYPE = actionType ?: ""
         this.PHI_CALLBACK_REQ.PHI_ACTION_DESCR = actionDescr ?: ""
-    }    
+    }    */
 }
 
