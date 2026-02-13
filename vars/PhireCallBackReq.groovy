@@ -19,6 +19,6 @@ def call(String strReqMsg) {
             println "req obj - action descr" + reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_ACTION_DESCR
     def phireCallbackActReq = new PhireCallbackActReq(reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_DOMAIN_ID, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_CR_NUM, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_TICKET_STATUS, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_TICKET_ID, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_MIGR_TYPE, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_ACTION_TYPE, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_ACTION_DESCR)
     //def phireCallbackActReq = new PhireCallbackActReq(strReqMsg)
-     println "in PhireCallBackReq.groovy - B4 return" + phireCallbackActReq.toString()
+     println "in PhireCallBackReq.groovy - B4 return" + phireCallbackActReq
     return phireCallbackActReq
 }
