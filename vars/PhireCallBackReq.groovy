@@ -28,5 +28,5 @@ def call(String strReqMsg) {
             //println "phireCallbackActReq in call" + mapCallbackActReq
     //def phireCallbackActReq = new PhireCallbackActReq(strReqMsg)
      println "in PhireCallBackReq.groovy - B4 return" + mapCallbackActReq.PHI_CALLBACK_REQ
-    return mapCallbackActReq.PHI_CALLBACK_REQ
+    return mapCallbackActReq
 }
