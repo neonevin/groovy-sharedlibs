@@ -42,18 +42,8 @@ class PhireCallbackActReq {
         assert reqObj instanceof Map
         println "req cnstr 2 " + reqObj.toString()
         reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_TICKET_ID
-        this.PhireCallbackActReqStr(reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_DOMAIN_ID, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_CR_NUM, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_TICKET_STATUS, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_TICKET_ID, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_MIGR_TYPE, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_ACTION_TYPE, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_ACTION_DESCR)
+        this.PhireCallbackActReq(reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_DOMAIN_ID, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_CR_NUM, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_TICKET_STATUS, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_TICKET_ID, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_MIGR_TYPE, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_ACTION_TYPE, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_ACTION_DESCR)
 
-    }
-
-    def PhireCallbackActReqStr(String phiDomainId, String phiCrNum, String ticketStatus, String ticketId, String phiMigrType, String actionType, String actionDescr) {
-        this.PHI_CALLBACK_REQ.PHI_DOMAIN_ID = phiDomainId ?: ""
-        this.PHI_CALLBACK_REQ.PHI_CR_NUM = phiCrNum ?: ""
-        this.PHI_CALLBACK_REQ.DTTL_TICKET_STATUS = ticketStatus ?: ""
-        this.PHI_CALLBACK_REQ.DTTL_TICKET_ID = ticketId ?: ""
-        this.PHI_CALLBACK_REQ.PHI_MIGR_TYPE = phiMigrType ?: ""
-        this.PHI_CALLBACK_REQ.DTTL_ACTION_TYPE = actionType ?: ""
-        this.PHI_CALLBACK_REQ.PHI_ACTION_DESCR = actionDescr ?: ""
-    }    */
+    }   */
 }
 
