@@ -25,8 +25,8 @@ def call(String strReqMsg) {
             println "phireCallbackActReq - migr type" + mapCallbackActReq.PHI_CALLBACK_REQ.PHI_MIGR_TYPE
             println "phireCallbackActReq - action type" + mapCallbackActReq.PHI_CALLBACK_REQ.DTTL_ACTION_TYPE
             println "phireCallbackActReq - action descr" + mapCallbackActReq.PHI_CALLBACK_REQ.PHI_ACTION_DESCR
-            println "phireCallbackActReq in call" + mapCallbackActReq
+            //println "phireCallbackActReq in call" + mapCallbackActReq
     //def phireCallbackActReq = new PhireCallbackActReq(strReqMsg)
      println "in PhireCallBackReq.groovy - B4 return" //+ phireCallbackActReq
-    return mapCallbackActReq
+    return mapCallbackActReq.PHI_CALLBACK_REQ
 }
