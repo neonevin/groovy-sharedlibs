@@ -19,7 +19,7 @@ class PhireCallbackActReq {
         ]
 
         
-    PhireCallbackActReq(String phiDomainId, String phiCrNum, String ticketStatus, String ticketId, String phiMigrType, String actionType, String actionDescr) {
+    PhireCallbackActReq_str(String phiDomainId, String phiCrNum, String ticketStatus, String ticketId, String phiMigrType, String actionType, String actionDescr) {
         this.PHI_CALLBACK_REQ.PHI_DOMAIN_ID = phiDomainId ?: ""
         this.PHI_CALLBACK_REQ.PHI_CR_NUM = phiCrNum ?: ""
         this.PHI_CALLBACK_REQ.DTTL_TICKET_STATUS = ticketStatus ?: ""
@@ -37,7 +37,7 @@ class PhireCallbackActReq {
         assert reqObj instanceof Map
         println "req cnstr 2 " + reqObj.toString()
         reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_TICKET_ID
-        this.PhireCallbackActReq(reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_DOMAIN_ID, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_CR_NUM, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_TICKET_STATUS, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_TICKET_ID, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_MIGR_TYPE, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_ACTION_TYPE, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_ACTION_DESCR)
+        this.PhireCallbackActReq_str(reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_DOMAIN_ID, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_CR_NUM, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_TICKET_STATUS, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_TICKET_ID, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_MIGR_TYPE, reqObj.DTTL_PHI_MIGR_STAT_REQ.DTTL_ACTION_TYPE, reqObj.DTTL_PHI_MIGR_STAT_REQ.PHI_ACTION_DESCR)
 
     }
 }
