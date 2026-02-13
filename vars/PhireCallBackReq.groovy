@@ -1,4 +1,5 @@
 import org.phire.*
+import groovy.json.JsonSlurper
 
 @NonCPS
 def call(String strReqMsg) {
