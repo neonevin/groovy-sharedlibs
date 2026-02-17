@@ -39,7 +39,7 @@ def sendMessage(JsonBuilder jsonMsg,String userid, String password, String url){
 // update method to return Map object
 //String call(String userid, String password, String phireTktId, String ticketPrjId, String ticketAppId, String ticketType, String tktStatus, String tktAssignee, String tktAssigneeEmail, String phiMigrType, String tktId, String lastCmmt, String phiTitle, String rqstUsr, String rqstEmail, String url) {
 @NonCPS
-def call(String userid, String password, String phireTktId, String ticketPrjId, String ticketAppId, String ticketType, String tktStatus, String tktAssignee, String tktAssigneeEmail, String phiMigrType, String tktId, String lastCmmt, String phiTitle, String rqstUsr, String rqstEmail, String url, boolean rqstExecTest, String rqstTestCaseId, String rqstUrlIndex) {
+def call(String userid, String password, String phireTktId, String ticketPrjId, String ticketAppId, String ticketType, String tktStatus, String tktAssignee, String tktAssigneeEmail, String phiMigrType, String tktId, String lastCmmt, String phiTitle, String rqstUsr, String rqstEmail, String url, String rqstExecTest, String rqstTestCaseId, String rqstUrlIndex) {
     if ((phireTktId) && (phireTktId.indexOf("-") != -1)) {
         phiDomainId = phireTktId.split('-')[0]
         phireId = phireTktId.split('-')[1]

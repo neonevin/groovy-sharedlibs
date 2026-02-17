@@ -21,7 +21,8 @@ class PhireActReq {
         PHI_TITLE:"", 
         DTTL_REQUESTER_ID:"", 
         DTTL_REQUEST_EMAIL:"",
-        DTTL_EXECUTE_TEST: false,
+        //DTTL_EXECUTE_TEST: false,
+        DTTL_EXECUTE_TEST: "N",
         DTTL_TEST_CASE_ID:"",
         DTTL_REQUEST_URL_INDEX:""]
 
@@ -96,9 +97,9 @@ class PhireActReq {
             this.CR_TASK_NEXT_STEP_REQ.DTTL_REQUEST_EMAIL=" "
         }
         if (rqstExecTest) {
-            this.CR_TASK_NEXT_STEP_REQ.DTTL_EXECUTE_TEST=true
+            this.CR_TASK_NEXT_STEP_REQ.DTTL_EXECUTE_TEST=rqstExecTest
         } else {
-            this.CR_TASK_NEXT_STEP_REQ.DTTL_EXECUTE_TEST=false
+            this.CR_TASK_NEXT_STEP_REQ.DTTL_EXECUTE_TEST="N"
         }
         if (rqstTestCaseId) {
             this.CR_TASK_NEXT_STEP_REQ.DTTL_TEST_CASE_ID=rqstTestCaseId
