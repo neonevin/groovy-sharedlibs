@@ -39,7 +39,7 @@ def sendMessage(JsonBuilder jsonMsg,String userid, String password, String url){
 // update method to return Map object
 //String call(String userid, String password, String phireTktId, String ticketPrjId, String ticketAppId, String ticketType, String tktStatus, String tktAssignee, String tktAssigneeEmail, String phiMigrType, String tktId, String lastCmmt, String phiTitle, String rqstUsr, String rqstEmail, String url) {
 @NonCPS
-def call(String userid, String password, String phireTktId, String ticketPrjId, String ticketAppId, String ticketType, String tktStatus, String tktAssignee, String tktAssigneeEmail, String phiMigrType, String tktId, String lastCmmt, String phiTitle, String rqstUsr, String rqstEmail, String url) {
+def call(String userid, String password, String phireTktId, String ticketPrjId, String ticketAppId, String ticketType, String tktStatus, String tktAssignee, String tktAssigneeEmail, String phiMigrType, String tktId, String lastCmmt, String phiTitle, String rqstUsr, String rqstEmail, String url, boolean rqstExecTest, String rqstTestCaseId, String rqstUrlIndex) {
     if ((phireTktId) && (phireTktId.indexOf("-") != -1)) {
         phiDomainId = phireTktId.split('-')[0]
         phireId = phireTktId.split('-')[1]
@@ -50,12 +50,12 @@ def call(String userid, String password, String phireTktId, String ticketPrjId, 
     
     //                          (phiDomainId, phiCrNum, tktStatus, phiAssignee, assigneeEmail, phiMigrType, ticketId, rqstUsr, rqstEmail) 
    //        (phiDomainId, phiCrNum, ticketPrjId, ticketAppId, ticketType, tktStatus, tktAssignee, assigneeEmail, phiMigrType, ticketId, phiTitle, rqstUsr, rqstEmail) {
-    def cr_next = new PhireActReq(phiDomainId, phireId, ticketPrjId, ticketAppId, ticketType, tktStatus, tktAssignee, tktAssigneeEmail, phiMigrType, tktId, phiTitle, rqstUsr, rqstEmail)
+    def cr_next = new PhireActReq(phiDomainId, phireId, ticketPrjId, ticketAppId, ticketType, tktStatus, tktAssignee, tktAssigneeEmail, phiMigrType, tktId, phiTitle, rqstUsr, rqstEmail, rqstExecTest, rqstTestCaseId, rqstUrlIndex)
     def builder = new JsonBuilder(cr_next)
     println builder.toString()
     println "Calling send Message"
     def respObj= new PhireActRsp()
-    respObj=sendMessage(builder, userid, password, url) 
+    respObj=sendMessage(builder, userid, password, url)
     // Load response.json  to PhireResponse 
  //   def builderRsp = new JsonBuilder(respObj)
     //println "Json builder - response obj"

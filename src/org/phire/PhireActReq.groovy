@@ -20,9 +20,13 @@ class PhireActReq {
         DTTL_TICKET_ID:"",
         PHI_TITLE:"", 
         DTTL_REQUESTER_ID:"", 
-        DTTL_REQUEST_EMAIL:""]
+        DTTL_REQUEST_EMAIL:"",
+        DTTL_EXECUTE_TEST: false,
+        DTTL_TEST_CASE_ID:"",
+        DTTL_REQUEST_URL_INDEX:""]
+
     //def CR_TASK_NEXT_STEP_REQ =  [PHI_DOMAIN_ID: "", PHI_CR_NUM: "", DEL_JIRA_STATUS:"",  PHI_ASSIGN_TO:"", PHI_MIGR_TYPE:"",DTTL_TICKET_ID:"",DTTL_REQUESTER_ID:""]
-    PhireActReq(phiDomainId, phiCrNum, ticketPrjId, ticketAppId, ticketType, tktStatus, tktAssignee, assigneeEmail, phiMigrType, ticketId, phiTitle, rqstUsr, rqstEmail) {
+    PhireActReq(phiDomainId, phiCrNum, ticketPrjId, ticketAppId, ticketType, tktStatus, tktAssignee, assigneeEmail, phiMigrType, ticketId, phiTitle, rqstUsr, rqstEmail, rqstExecTest, rqstTestCaseId, rqstUrlIndex) {
 
             println  "debug - in PhireActReq.groovy - call started"
     println 'phiDomainId '+ phiDomainId + 'phiCrNum ' + phiCrNum +'### end.'
@@ -90,6 +94,21 @@ class PhireActReq {
             this.CR_TASK_NEXT_STEP_REQ.DTTL_REQUEST_EMAIL=rqstEmail
         } else {
             this.CR_TASK_NEXT_STEP_REQ.DTTL_REQUEST_EMAIL=" "
+        }
+        if (rqstExecTest) {
+            this.CR_TASK_NEXT_STEP_REQ.DTTL_EXECUTE_TEST=true
+        } else {
+            this.CR_TASK_NEXT_STEP_REQ.DTTL_EXECUTE_TEST=false
+        }
+        if (rqstTestCaseId) {
+            this.CR_TASK_NEXT_STEP_REQ.DTTL_TEST_CASE_ID=rqstTestCaseId
+        } else {
+            this.CR_TASK_NEXT_STEP_REQ.DTTL_TEST_CASE_ID=" "
+        }
+        if (rqstUrlIndex) {
+            this.CR_TASK_NEXT_STEP_REQ.DTTL_REQUEST_URL_INDEX=rqstUrlIndex
+        } else {
+            this.CR_TASK_NEXT_STEP_REQ.DTTL_REQUEST_URL_INDEX=" "
         }
     }
 
