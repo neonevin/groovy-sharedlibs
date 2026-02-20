@@ -24,7 +24,7 @@ class PhireActReq {
         //DTTL_EXECUTE_TEST: false,
         DTTL_EXECUTE_TEST: "N",
         DTTL_TEST_CASE_ID:"",
-        DTTL_REQUEST_URL_INDEX:""]
+        DTTL_REQUEST_URL:""]
 
     //def CR_TASK_NEXT_STEP_REQ =  [PHI_DOMAIN_ID: "", PHI_CR_NUM: "", DEL_JIRA_STATUS:"",  PHI_ASSIGN_TO:"", PHI_MIGR_TYPE:"",DTTL_TICKET_ID:"",DTTL_REQUESTER_ID:""]
     PhireActReq(phiDomainId, phiCrNum, ticketPrjId, ticketAppId, ticketType, tktStatus, tktAssignee, assigneeEmail, phiMigrType, ticketId, phiTitle, rqstUsr, rqstEmail, rqstExecTest, rqstTestCaseId, rqstUrlIndex) {
@@ -107,9 +107,9 @@ class PhireActReq {
             this.CR_TASK_NEXT_STEP_REQ.DTTL_TEST_CASE_ID=" "
         }
         if (rqstUrlIndex) {
-            this.CR_TASK_NEXT_STEP_REQ.DTTL_REQUEST_URL_INDEX=rqstUrlIndex
+            this.CR_TASK_NEXT_STEP_REQ.DTTL_REQUEST_URL=rqstUrlIndex
         } else {
-            this.CR_TASK_NEXT_STEP_REQ.DTTL_REQUEST_URL_INDEX=" "
+            this.CR_TASK_NEXT_STEP_REQ.DTTL_REQUEST_URL=" "
         }
     }
 
