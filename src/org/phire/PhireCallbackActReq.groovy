@@ -16,7 +16,7 @@ class PhireCallbackActReq {
         PHI_MIGR_TYPE:"", //Phire migration type
         DTTL_ACTION_TYPE:"", //Phire action type
         PHI_ACTION_DESCR:"", //Phire action description response from phire
-        DTTL_TEST_STATUS:"", //Status of test execution for Phire - Pending, Success, Failed
+        DTTL_TEST_STATUS:"" //Status of test execution for Phire - Completed, pending
         ]
 
         
